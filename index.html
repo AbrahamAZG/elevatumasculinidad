@@ -64,21 +64,13 @@
             
                 --footer-bg-color: #191919;
             }
-            
+            .navbar-hidden {
+                 display: none!important;
+                  }
         </style>
         
     </head>
-   <style>
-    @media(max-width:600px){
-        .navbar{
-            visibility: hidden!important;
-        }
-        .hero{
-            margin-top: -130px;
-        }
-      
-    }
-   </style>
+
     <body class="home theme-mode-dark">
 
         <!-- Header -->
@@ -138,23 +130,32 @@
 
         </header>
         <script>
-var lastScrollTop = 0;
+       var lastScrollTop = 0;
 var navbar = document.querySelector('.navbar');
 
 window.addEventListener('scroll', function() {
     var currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-    if (currentScrollTop > lastScrollTop) {
-        // Si el usuario está desplazándose hacia abajo, oculta el navbar
-        navbar.classList.add('navbar-hidden');
+    // Si el ancho de la ventana es menor o igual a 768px
+    if (window.innerWidth <= 768) {
+        if (currentScrollTop > lastScrollTop && currentScrollTop > 100) {
+            // Si el usuario está desplazándose hacia abajo y ha desplazado más de 100px, oculta el navbar
+            navbar.classList.add('navbar-hidden');
+        } else {
+            // Si el usuario está desplazándose hacia arriba o ha desplazado menos de 100px, muestra el navbar
+            navbar.classList.remove('navbar-hidden');
+        }
     } else {
-        // Si el usuario está desplazándose hacia arriba, muestra el navbar
-        navbar.classList.remove('navbar-hidden');
+        // Para pantallas más grandes que 768px, simplemente muestra u oculta el navbar basado en la dirección del desplazamiento
+        if (currentScrollTop > lastScrollTop) {
+            navbar.classList.add('navbar-hidden');
+        } else {
+            navbar.classList.remove('navbar-hidden');
+        }
     }
 
     lastScrollTop = currentScrollTop;
 });
-
         </script>
         <!-- Hero -->
         <section id="slider" class="hero p-0 odd">
