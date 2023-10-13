@@ -64,7 +64,10 @@
             
                 --footer-bg-color: #191919;
             }
-       
+            .navbar-hidden {
+                  transform: translateY(-100%);
+                 transition: transform 0.3s ease;
+                        }
         </style>
         
     </head>
@@ -75,7 +78,7 @@
         <header id="header">
 
             <!-- Navbar -->
-            <nav  style="background: transparent;"   data-aos="zoom-out" data-aos-delay="800" class="navbar navbar-expand">
+            <nav  data-aos="zoom-out" data-aos-delay="800" class="navbar navbar-expand">
                 <div class="container header">
 
                     <!-- Navbar Brand-->
@@ -127,7 +130,24 @@
             </nav>
 
         </header>
+        <script>
+var lastScrollTop = 0;
+var navbar = document.querySelector('.navbar');
 
+window.addEventListener('scroll', function() {
+    var currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (currentScrollTop > lastScrollTop) {
+        // Si el usuario está desplazándose hacia abajo, oculta el navbar
+        navbar.classList.add('navbar-hidden');
+    } else {
+        // Si el usuario está desplazándose hacia arriba, muestra el navbar
+        navbar.classList.remove('navbar-hidden');
+    }
+
+    lastScrollTop = currentScrollTop;
+});
+        </script>
         <!-- Hero -->
         <section id="slider" class="hero p-0 odd">
             <div class="swiper-container full-slider featured animation slider-h-100">
