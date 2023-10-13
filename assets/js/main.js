@@ -1070,3 +1070,10 @@ jQuery(function ($) {
         })
     }
 })
+
+document.addEventListener('DOMContentLoaded', function() {
+    var video = document.querySelector('video');
+    video.play().catch(function(error) {
+        console.log('Autoplay error:', error);
+    });
+});
