@@ -1070,11 +1070,3 @@ jQuery(function ($) {
         })
     }
 })
-window.addEventListener('scroll', function() {
-    var navbar = document.querySelector('.navbarr');
-    if (window.scrollY > 0) {  // Cambia '0' a otro valor si deseas que el cambio ocurra después de un cierto desplazamiento
-        navbar.style.backgroundColor = '#fff'; // o cualquier otro color que desees
-    } else {
-        navbar.style.backgroundColor = 'transparent';
-    }
-});
