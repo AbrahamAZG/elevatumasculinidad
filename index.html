@@ -64,14 +64,21 @@
             
                 --footer-bg-color: #191919;
             }
-            .navbar-hidden {
-                  transform: translateY(-100%);
-                 transition: transform 0.3s ease;
-                        }
+            
         </style>
         
     </head>
-   
+   <style>
+    @media(max-width:600px){
+        .navbar{
+            visibility: hidden!important;
+        }
+        .hero{
+            margin-top: -130px;
+        }
+      
+    }
+   </style>
     <body class="home theme-mode-dark">
 
         <!-- Header -->
@@ -147,6 +154,7 @@ window.addEventListener('scroll', function() {
 
     lastScrollTop = currentScrollTop;
 });
+
         </script>
         <!-- Hero -->
         <section id="slider" class="hero p-0 odd">
